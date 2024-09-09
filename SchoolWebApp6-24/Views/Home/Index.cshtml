@@ -1,0 +1,63 @@
+﻿@using SchoolWebApp6_24.ViewModels
+@model string
+
+@{
+    ViewData["Title"] = "Profil";
+}
+
+@section Styles {
+    <style>
+        .profile-header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+            .profile-info p {
+                margin-bottom: 10px;
+            }
+
+        .profile-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+}
+
+<div class="container">
+    <div class="profile-header text-center">
+        <h1 class="display-4">Vítej, @Model</h1>
+        @if (User?.Identity?.IsAuthenticated ?? false) {
+            <a asp-controller="Account" asp-action="LogOut" class="btn btn-outline-dark my-2">Odhlásit</a>
+        }
+    </div>
+    <div class="profile-card">
+        <h3><i class="fas fa-user profile-icon"></i>Profilové informace</h3>
+        <div class="profile-info">
+            <p><strong>Uživatelské jméno:</strong> @Model</p>
+            <p><strong>Email:</strong> @User.FindFirst("email")?.Value</p>
+            <p><strong>Role:</strong> @string.Join(", ", @User.Claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).Select(c => c.Value))</p>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Můžete přidat nějaké skripty, pokud potřebujete
+    </script>
+}

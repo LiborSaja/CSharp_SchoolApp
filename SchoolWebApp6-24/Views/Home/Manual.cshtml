@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "Uživatelský manuál pro aplikaci";
+}
+
+<h1>Uživatelský manuál pro aplikaci</h1>
+
+<h3>Obsah</h3>
+<ol>
+    <li>Úvod</li>
+    <li>Přihlášení</li>
+    <li>Hlavní stránka</li>
+    <li>Seznam studentů</li>
+    <li>Seznam předmětů</li>
+    <li>Seznam známek</li>
+    <li>Správa uživatelů</li>
+    <li>Seznam uživatelů</li>
+    <li>Seznam rolí</li>
+</ol>
+
+<h5>1) Úvod</h5>
+<p>
+    Berte, prosím, v úvahu, že se jedná o mou první aplikaci, čili je velice pravděpodobné, že se mohou vyskytovat chyby a nedokonalosti. Děkuji za pochopení.
+    Aplikace je určena pro správu studentů, uživatelů, předmětů a známek ve školním prostředí. Umožňuje administrátorům a učitelům přidávat, upravovat a mazat záznamy. Dále umožňuje administrátorům spravovat všechny uživatele, včetně tvorby uživatelských rolí.
+</p>
+
+<h5>2) Přihlášení</h5>
+<p>
+    Existuje zde hierarchie rolí, kdy každá role má jiná oprávnění v rámci aplikace. Rolemi jsou Student, Učitel, Admin.
+    Na stránce Profil zadejte uživatelské jméno a heslo ze seznamu níže.
+</p>
+<p>
+    Uživatelská jména a hesla:
+</p>
+<p>Upozornění: z bezpečnostních důvodů a z důvodů snadné údržby, není možné tyto tři uživatele smazat</p>
+<ul>
+    <li>Student</li>
+    <ul>
+        <li>Přihlašovací jméno: StudentPetr</li>
+        <li>Heslo: Abcd1234</li>
+    </ul>
+    <li>Teacher</li>
+    <ul>
+        <li>Přihlašovací jméno: UcitelPavel</li>
+        <li>Heslo: Abcd1234</li>
+    </ul>
+    <li>Admin</li>
+    <ul>
+        <li>Přihlašovací jméno: Admin1</li>
+        <li>Heslo: Abcd1234</li>
+    </ul>
+</ul>
+<p>
+    Klikněte na tlačítko "Přihlásit".
+</p>
+
+<h5>3) Hlavní stránka</h5>
+<p>
+    Po úspěšném přihlášení se zobrazí hlavní stránka s navigačním panelem, který obsahuje odkazy na jednotlivé části aplikace, v rámci role přihlášeného uživatele: O mně, Podmínky použití, Profil, Studenti, Předměty, Hodnocení, Uživatelé a Role. Úplně v pravo pak ikonu na profil a rychlé odhlášení.
+</p>
+
+<h5>4) Seznam studentů</h5>
+<p>
+    - tuto skupinu vidí všichni přihlášení uživatelé
+    - úpravy ve skupině mohou provádět pouze Admin, Teacher
+</p>
+<p>
+    Klikněte na záložku "Studenti" v navigačním panelu.
+    Zobrazí se seznam všech studentů.
+    Pro přidání nového studenta klikněte na tlačítko "Přidat nového studenta". Vyplňte formulář a klikněte na tlačítko "Přidat".
+    Pro úpravu studenta klikněte na tlačítko "Upravit" v záznamu studenta a po úpravách klikněte na tlačítko "Uložit změny".
+    Pro smazání studenta klikněte na tlačítko "Smazat" v záznamu studenta a potvrďte akci.
+</p>
+<p>Poznámka:</p>
+<ul>
+    <li>- další možností je vybrat a nahrát XML soubor s požadovanými údaji o studentovi</li>
+    <li>- při přidání nového studenta dojde rovněž k přiřazení tohoto studenta do seznamu všech uživatelů</li>
+</ul>
+
+<h5>5) Seznam předmětů</h5>
+<p>
+    - tuto skupinu vidí všichni přihlášení uživatelé
+    - úpravy ve skupině mohou provádět pouze Admin, Teacher
+</p>
+<p>
+    Klikněte na záložku "Předměty" v navigačním panelu.
+    Zobrazí se seznam všech předmětů.
+    Pro přidání nového předmětu klikněte na tlačítko "Přidat nový předmět". Vyplňte formulář a klikněte na tlačítko "Přidat".
+    Pro úpravu předmětu klikněte na tlačítko "Upravit" v záznamu předmětu a po úpravách klikněte na tlačítko "Uložit změny".
+    Pro smazání předmětu klikněte na tlačítko "Smazat" v záznamu studenta a potvrďte akci.
+</p>
+<p>Poznámka:</p>
+<ul>
+    <li>- není možné přidat předmět se stejným názvem</li>
+    <li>- z kapacitních důvodů je nastaven limit 10 předmětů, pro přidání dalších, některé odstraňte</li>
+</ul>
+
+<h5>6) Seznam známek</h5>
+<p>
+    - tuto skupinu vidí všichni přihlášení uživatelé
+    - úpravy ve skupině mohou provádět pouze Admin, Teacher
+</p>
+<p>
+    Klikněte na záložku "Hodnocení" v navigačním panelu.
+    Zobrazí se seznam všech záznamů o známkách - student - předmět - známka - datum.
+    Pro přidání nového záznamu klikněte na tlačítko "Přidat známku". Vyplňte formulář, dva rozevírací seznamy, dvě záznamová pole, a klikněte na tlačítko "Přidat".
+    Pro úpravu záznamu klikněte na tlačítko "Upravit" v záznamu známky a po úpravách klikněte na tlačítko "Uložit změny".
+    Pro smazání známky klikněte na tlačítko "Smazat" v záznamu známky a potvrďte akci.
+</p>
+<p>Poznámka:</p>
+<ul>
+    <li>- Z kapacitních důvodů je nastaven limit 15 záznamů, pro přidání dalších, některé odstraňte</li>
+</ul>
+
+<h5>7) Správa uživatelů</h5>
+<p>
+    -tato část je přístupná pouze pro administrátora - Admin1
+</p>
+
+<h5>8) Seznam uživatelů</h5>
+<p>
+    Klikněte na záložku "Uživatelé" v navigačním panelu.
+    Zobrazí se seznam všech uživatelů.
+    Pro přidání nového uživatele klikněte na tlačítko "Přidat nového uživatele". Vyplňte formulář s údaji o uživateli (jméno, email, heslo) a klikněte na tlačítko "Přidat".
+    Pro úpravu uživatele klikněte na tlačítko "Upravit" v záznamu uživatele a po úpravách klikněte na tlačítko "Uložit změny".
+    Pro smazání uživatele klikněte na tlačítko "Smazat" v záznamu uživatele a potvrďte akci.
+</p>
+<p>Poznámka:</p>
+<ul>
+    <li>- Z kapacitních důvodů je nastaven limit 30 uživatelů, pro přidání dalších, některé odstraňte</li>
+</ul>
+
+<h5>9) Seznam rolí</h5>
+<p>
+    Klikněte na záložku "Role" v navigačním panelu.
+    Zobrazí se seznam všech rolí, kde je možné vytvořit roli, upravit název role, přiřadit roli uživateli, smazat roli.
+    Pro přidání nové role klikněte na tlačítko "Vytvořit roli". Zadejte název role a klikněte na "vytvořit".
+    Pro úpravu názvu role klikněte na tlačítko "Upravit název" v seznamu rolí a po úpravách klikněte na tlačítko "Uložit změny".
+    Pro přiřazení role uživatelům klikněte na "Přiřadit roli". Na následující stránce lze vidět sekce - Přiřadit roli - Odebrat roli - s checkboxy, zatržením checkboxu v dané sekci, a po kliknutí na tlačítko "Uložit změny", dojde k přiřazení, respektive odebrání role u daného uživatele.
+    Pro smazání role klikněte na tlačítko "Smazat" v seznamu rolí a potvrďte akci.
+</p>
+<p>Poznámka:</p>
+<ul>
+    <li>- Z kapacitních důvodů je nastaven limit 10 rolí, pro přidání dalších, některé odstraňte</li>
+</ul>
+
+<p>
+    Tento manuál by měl pokrýt základní funkce aplikace a poskytnout potřebné informace pro efektivní práci s aplikací.
+</p>

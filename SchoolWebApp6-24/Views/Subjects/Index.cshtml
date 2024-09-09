@@ -1,0 +1,35 @@
+﻿@using SchoolWebApp6_24.DTO
+@model IEnumerable<SubjectDTO>
+
+@{
+    ViewData["Title"] = "Seznam předmětů";
+}
+
+<h1>Seznam předmětů</h1>
+@if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher"))) {
+    <a class="btn btn-success my-2" asp-action="Create">Přidat nový předmět</a>
+}
+<p>Počet předmětů: @Model.Count()</p> <!-- Zobrazení počtu předmětů -->
+@foreach (var subject in Model) {
+    <div class="border border-dark p-2">
+        <h5>@subject.Name </h5>
+        <p>ID: @subject.Id</p>
+        <div class="d-flex gap-2">
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher"))) {
+                <a class="btn btn-warning my-2" asp-action="Update" asp-route-id="@subject.Id">Upravit</a>
+                <form method="post" onsubmit="return confirmDelete()" asp-controller="Subjects" asp-action="Delete">
+                    <input type="hidden" name="id" value="@subject.Id" />
+                    <button type="submit" class="btn btn-danger my-2">Smazat</button>
+                </form>
+            }
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm("Opravdu si přejete smazat tento předmět?");
+        }
+    </script>
+}

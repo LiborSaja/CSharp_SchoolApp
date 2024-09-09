@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "O mně";
+}
+
+<style>
+    .team {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-around;
+    }
+
+    .team-member {
+        text-align: center;
+        flex: 1;
+        max-width: 200px;
+    }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+</style>
+
+    <div class="about-section">
+        <h2>Vítejte!</h2>
+        <div class="team">
+            <div class="team-member">
+                <img src="~/images/icons/person.jpg" alt="Team Member 1">
+                <h3>Ing. Libor Šaja</h3>                
+            </div>
+            
+        </div>
+    </div>
+<div class="about-me">
+    <h3>Něco o mně</h3>
+    <p>Jmenuji se Libor Šaja a jsem nadšený začínající programátor s vášní pro tvorbu webových aplikací. Mým cílem je stát se profesionálním vývojářem a přinášet inovativní a efektivní řešení do světa technologií. Právě dokončuji svůj první projekt, který je ukázkou mých dovedností a snahy v programování, a tím je tento web.</p>
+
+    <h3>Moje Dovednosti</h3>
+    <ul>
+        <li><strong>Programovací jazyky:</strong> HTML, C#, Java</li>
+        <li><strong>Nástroje:</strong> Git, Visual Studio, IntelliJ</li>
+        <li><strong>Znalosti:</strong> Základy algoritmů a datových struktur, responzivní design, základy backend vývoje</li>
+    </ul>
+
+    <h3>Projekty</h3>
+    <ol>
+        <li><strong>Tento Web:</strong> Tato aplikace je mým prvním krokem do světa programování. Je mnou vyvíjena a rozšiřována, vždy dle aktuálních získávaných dovednosti a schopnosti. Podmínky používání naleznete v záložce <a asp-area="" asp-controller="Home" asp-action="Privacy">Podmínky použití</a>, jak aplikaci používat zjistíte v záložce <a asp-area="" asp-controller="Home" asp-action="Manual">Uživatelský manuál</a></li>
+        <li><strong>VAPV</strong> Připravuje se...</li>
+    </ol>
+
+
+    <h3>Vize a Cíle</h3>
+    <p>Mým hlavním cílem je neustálé sebezdokonalování a učení se novým technologiím. Rád bych pracoval na reálných projektech, kde mohu přispět svými nápady a zároveň se učit od zkušenějších kolegů.</p>
+
+    <h3>Kontakt</h3>
+    <ul>
+        <li><strong>E-mail:</strong> <a href="">Připravuje se...</a></li>
+        <li><strong>LinkedIn:</strong> <a href="" target="_blank">Připravuje se...</a></li>
+        <li><strong>GitHub:</strong> <a href="" target="_blank">Připravuje se...</a></li>
+    </ul>
+</div>

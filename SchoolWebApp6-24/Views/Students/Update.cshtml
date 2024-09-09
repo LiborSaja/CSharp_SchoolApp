@@ -1,0 +1,28 @@
+﻿@using SchoolWebApp6_24.DTO
+@model StudentDTO
+
+@{
+    ViewData["Title"] = "Upravit informace o studentovi";
+}
+
+<h1>Upravit informace o studentovi</h1>
+<a asp-action="Index" class="btn btn-secondary">Zpět</a>
+<form asp-action="Update">
+<div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="@Model.FirstName">Jméno</label>
+        <input type="text" asp-for="@Model.FirstName" class="form-control" />
+
+        <label asp-for="LastName">Příjmení</label>
+        <input type="text" asp-for="LastName" class="form-control" />
+
+        <label asp-for="DateOfBirth">Datum narození</label>
+        <input type="date" asp-for="DateOfBirth" class="form-control" />
+    </div>
+    <input type="submit" class="btn btn-success" value="Uložit změny" />
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

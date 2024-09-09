@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "Seznam rolí";
+    var protectedRoleIds = ViewBag.ProtectedRoleIds as List<string>;
+}
+
+<h1>Seznam rolí</h1>
+<a asp-action="Create" class="btn btn-primary my-2">Vytvořit roli</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Název role</th>
+            <th>Upravení názvu role</th>
+            <th>Přiřazení role</th>
+            <th>Smazání role</th>
+            <th>ID role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model) {
+            <tr>
+                <td>@role.Name</td>
+                <td>
+                    @if (!protectedRoleIds.Contains(role.Id)) {
+                        <a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-warning">Upravit název</a>
+                    }
+                    else {
+                        <span class="text-muted">Nelze upravit</span>
+                    }
+                </td>
+                <td>
+                    @if (!protectedRoleIds.Contains(role.Id)) {
+                        <a asp-action="Update" asp-route-id="@role.Id" class="btn btn-primary">Přiřadit roli</a>
+                    }
+                    else {
+                        <span class="text-muted">Nelze přiřadit</span>
+                    }
+                </td>
+                <td>
+                    @if (!protectedRoleIds.Contains(role.Id)) {
+                        <form asp-action="Delete" asp-route-id="@role.Id" method="post" class="d-inline" onsubmit="return confirmDelete();">
+                            <button type="submit" class="btn btn-danger">Smazat</button>
+                        </form>
+                    }
+                    else {
+                        <span class="text-muted">Nelze smazat</span>
+                    }
+                </td>
+                <td>@role.Id</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm("Opravdu chcete tuto roli smazat?");
+        }
+    </script>
+}

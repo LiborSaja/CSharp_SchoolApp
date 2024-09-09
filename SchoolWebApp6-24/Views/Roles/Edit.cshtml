@@ -1,0 +1,23 @@
+﻿@using SchoolWebApp6_24.ViewModels
+@model EditRoleViewModel
+
+@{
+    ViewData["Title"] = "Upravit roli";
+}
+
+<h1>Upravit roli</h1>
+<a asp-action="Index" class="btn btn-secondary my-2">Zpět</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Název:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary my-2">Uložit změny</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

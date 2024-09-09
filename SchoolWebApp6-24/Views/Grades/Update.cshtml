@@ -1,0 +1,30 @@
+﻿@using SchoolWebApp6_24.DTO
+@model GradeDTO
+
+@{
+    ViewData["Title"] = "Upravit známku";
+}
+
+<div>
+    <form asp-action="Update" method="post">
+        <h4>Změnit známku</h4>
+        <a asp-action="Index" class="btn btn-secondary">Zpět</a>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label class="control-label" asp-for="StudentId"></label>
+            <select class="form-control" asp-for="StudentId" asp-items="ViewBag.Students"></select>
+
+            <label class="control-label" asp-for="SubjectId"></label>
+            <select class="form-control" asp-for="SubjectId" asp-items="ViewBag.Subjects"></select>
+
+            <label>Téma zkoušené látky</label>
+            <input type="text" asp-for="Topic" placeholder="Téma zkoušené látky" class="form-control" />
+
+            <label>Hodnocení</label>
+            <input type="number" asp-for="Mark" min="1" max="5" placeholder="Mark" class="form-control" />
+        </div>
+        <div>
+            <input class="btn btn-success my-2" type="submit" value="Uložit změny" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+﻿@using SchoolWebApp6_24.DTO
+@model SubjectDTO
+
+@{
+    ViewData["Title"] = "Upravit název předmětu";
+}
+
+<h1>Upravit název předmětu</h1>
+<a asp-action="Index" class="btn btn-secondary">Zpět</a>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Update">
+    <div class="form-group">
+        <label asp-for="@Model.Name"></label>
+        <input type="text" asp-for="@Model.Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-success my-2" value="Uložit změny" />
+</form>

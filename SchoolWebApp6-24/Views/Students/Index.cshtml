@@ -1,0 +1,45 @@
+﻿@using SchoolWebApp6_24.DTO
+@model IEnumerable<StudentDTO>
+
+@{
+    ViewData["Title"] = "Seznam studentů";
+}
+
+<h1>Seznam studentů</h1>
+@if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher"))) {
+    <form method="post" enctype="multipart/form-data" asp-action="Upload" asp-controller="FileUpload">
+        <div class="form-group">
+            <input type="file" name="file" />
+            <input type="submit" value="Nahrát" />
+        </div>
+    </form>
+}
+
+@if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher"))) {
+<a class="btn btn-success my-2" asp-action="Create">Přidat nového studenta</a>
+}
+<p>Počet studentů: @Model.Count()</p>
+@foreach (var student in Model) {
+    <div class="border border-dark p-2">
+        <h5>Jméno: @student.FirstName @student.LastName</h5>
+        <p>ID: @student.Id</p>
+        <p>Datum narození: @student.DateOfBirth.ToShortDateString()</p>
+        @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Teacher"))) {
+            <div class="d-flex gap-2">
+                <a class="btn btn-warning my-2" asp-action="Update" asp-route-id="@student.Id">Upravit</a>
+                <form method="post" onsubmit="return confirmDelete()" asp-controller="Students" asp-action="Delete">
+                    <input type="hidden" name="id" value="@student.Id" />
+                    <button type="submit" class="btn btn-danger my-2">Smazat</button>
+                </form>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        function confirmDelete() {
+            return confirm("Opravdu si přejete smazat tohoto studenta?");
+        }
+    </script>
+}
